@@ -46,5 +46,3 @@ test_install() {
 git_clean
 build
 test_install
-
-export PYTHONPATH=$PYTHONPATH:$INSTALL_DIR/lib/python/
