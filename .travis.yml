@@ -23,5 +23,6 @@ install:
   - pip install scipy
 script:
   - ./travis_build.sh .
-  - ./travis_build.sh build_out_of_tree
+  - echo $PYTHONPATH
+  - ls ./install/lib/python/
   - python share/lib/python/neuron/rxdtests/run_all.py
