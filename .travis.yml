@@ -21,6 +21,7 @@ before_install:
 install:
   - pip install numpy 
   - pip install scipy
+  - pip install matplotlib
 script:
   - ./travis_build.sh .
   - echo $PYTHONPATH
