@@ -30,7 +30,7 @@ Ca = rxd.Species(r, name='Ca', d=Dca)
 Buf = rxd.Species(r, name='Buf', d=Db)
 CaBuf = rxd.Species(r, name='CaBuf', d=Dcab)
 
-buffering = rxd.Reaction(Ca + Buf <> CaBuf, kf, kb)
+buffering = rxd.Reaction(Ca + Buf, CaBuf, kf, kb)
 
 
 #
