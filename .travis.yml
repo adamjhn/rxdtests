@@ -1,6 +1,10 @@
 language: cpp
 sudo: false
 dist: trusty
+python: 2.7
+virtualenv:
+    system_site_packages: true 
+
 compiler:
   - clang
   - gcc
@@ -13,6 +17,10 @@ before_install:
   - echo $LANG
   - echo $LC_ALL
   - $CXX -v
+install:
+  - pip install numpy 
+  - pip install scipy
 script:
   - ./travis_build.sh .
   - ./travis_build.sh build_out_of_tree
+  - python share/lib/python/neuron/rxdtests/run_all.py
