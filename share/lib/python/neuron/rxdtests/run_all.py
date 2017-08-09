@@ -33,7 +33,7 @@ def test(files):
         
         try:
             outp = subprocess.check_output(['python%i' % sys.version_info.major, 'do_test.py', os.path.join('tests', f), output_file] )
-            sobj = re.search( r'<BAS_RL (\d*) BAS_RL>', outp.decode('utf-8'), re.M)     
+            sobj = re.search( r'<BAS_RL (\d*) BAS_RL>', outp.decode('utf-8'), re.M)
             rlen =  int(sobj.group(1))
             success = False
             corr_dat = numpy.fromfile(os.path.join('correct_data', base_name + '.dat')).reshape(-1, rlen)
@@ -86,7 +86,6 @@ def test(files):
         except:
             print('incomplete')
             incomplete_list.append(base_name)
-            raise
 
     print('')
     print('---')

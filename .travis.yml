@@ -10,8 +10,10 @@ compiler:
 env:
   - CONFIG_OPTIONS="--without-x --without-paranrn --with-nrnpython=$(which python2)"
     PYTHON="$(which python2)"
+    PIP="$(which pip)"
   - CONFIG_OPTIONS="--without-x --without-paranrn --with-nrnpython=$(which python3)"
     PYTHON="$(which python3)"
+    PIP="$(which pip3)"
 os:
   - linux
 before_install:
@@ -20,9 +22,9 @@ before_install:
   - $CXX -v
   - export PYTHONPATH=$PYTHONPATH:$(pwd)/install/lib/python/
 install:
-  - pip install numpy 
-  - pip install scipy
-  - pip install matplotlib
+  - $PIP install numpy 
+  - $PIP install scipy
+  - $PIP install matplotlib
 script:
   - ./travis_build.sh .
   - echo $PYTHONPATH

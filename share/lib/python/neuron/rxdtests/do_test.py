@@ -41,7 +41,8 @@ def do_test(test_to_run, results_location, num_record=10):
         data['data'].extend(local_data)
         # print correct record length
         if data['record_count']==2:
-            print("<BAS_RL", len(local_data), "BAS_RL>", repr(h.t), data['record_count'])
+            outstr = "<BAS_RL %i BAS_RL> %s %s" % (len(local_data), repr(h.t), data['record_count'])
+            print(outstr)
     
     
     def save_and_cleanup():
@@ -52,7 +53,7 @@ def do_test(test_to_run, results_location, num_record=10):
             array.array('d', data['data']).tofile(f)
         
         import sys
-        sys.exit()
+        sys.exit(0)
 
     h.CVode().extra_scatter_gather(0, collect_data)
     
