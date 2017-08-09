@@ -8,10 +8,10 @@ compiler:
   - clang
   - gcc
 env:
-  - PYTHON = $(which python2)
-    CONFIG_OPTIONS="--without-x --without-paranrn --with-nrnpython=$PYTHON"
-  - PYTHON = $(which python3)
-    CONFIG_OPTIONS="--without-x --without-paranrn --with-nrnpython=$PYTHON"
+  - CONFIG_OPTIONS="--without-x --without-paranrn --with-nrnpython=$(which python2)"
+    PYTHON = $(which python2)
+  - CONFIG_OPTIONS="--without-x --without-paranrn --with-nrnpython=$(which python3)
+    PYTHON = $(which python3)
 os:
   - linux
 before_install:
