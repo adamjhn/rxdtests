@@ -26,6 +26,6 @@ install:
   - $PIP install scipy
   - $PIP install matplotlib
 script:
-  - ./travis_build.sh .
   - ./travis_build.sh build_out_of_tree
+  - ./travis_build.sh .
   - $PYTHON share/lib/python/neuron/rxdtests/run_all.py
