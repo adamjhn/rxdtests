@@ -27,7 +27,5 @@ install:
   - $PIP install matplotlib
 script:
   - ./travis_build.sh .
-  - echo $PYTHONPATH
-  - echo $PYTHON
-  - ls ./install/lib/python/
+  - ./travis_build.sh build_out_of_tree
   - $PYTHON share/lib/python/neuron/rxdtests/run_all.py
