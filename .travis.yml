@@ -1,7 +1,6 @@
 language: cpp
 sudo: false
 dist: trusty
-python: 2.7
 virtualenv:
     system_site_packages: true 
 
@@ -9,8 +8,10 @@ compiler:
   - clang
   - gcc
 env:
-  - CONFIG_OPTIONS="--without-x --without-paranrn --with-nrnpython=$(which python2)"
-  - CONFIG_OPTIONS="--without-x --without-paranrn --with-nrnpython=$(which python3)"
+  - PYTHON = $(which python2)
+    CONFIG_OPTIONS="--without-x --without-paranrn --with-nrnpython=$PYTHON"
+  - PYTHON = $(which python3)
+    CONFIG_OPTIONS="--without-x --without-paranrn --with-nrnpython=$PYTHON"
 os:
   - linux
 before_install:
@@ -26,4 +27,4 @@ script:
   - ./travis_build.sh .
   - echo $PYTHONPATH
   - ls ./install/lib/python/
-  - python share/lib/python/neuron/rxdtests/run_all.py
+  - $PYTHON share/lib/python/neuron/rxdtests/run_all.py
