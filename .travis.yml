@@ -5,6 +5,13 @@ addons:
     apt:
         packages:
         - python3
+        - python3-setuptools
+        - python-numpy
+        - python3-numpy
+        - python-scipy
+        - python3-scipy
+        - python-matplotlib
+        - python3-matplotlib
 virtualenv:
     system_site_packages: true 
 
@@ -25,10 +32,6 @@ before_install:
   - echo $LC_ALL
   - $CXX -v
   - export PYTHONPATH=$PYTHONPATH:$(pwd)/install/lib/python/
-install:
-  - $PIP install numpy 
-  - $PIP install scipy
-  - $PIP install matplotlib
 script:
   - ./travis_build.sh build_out_of_tree
   - ./travis_build.sh .
