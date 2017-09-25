@@ -1,6 +1,10 @@
 language: cpp
 sudo: false
 dist: trusty
+addons:
+    apt:
+        packages:
+        - python3
 virtualenv:
     system_site_packages: true 
 
