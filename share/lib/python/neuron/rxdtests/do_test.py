@@ -62,7 +62,7 @@ def do_test(test_to_run, results_location, num_record=10):
     if sys.version_info.major < 3:
         execfile(the_file, globals(), globals())
     else:
-        exec(compile(open(the_file).read(), the_file, 'exec'), globals(), locals())
+        exec(open(the_file).read())
 
     # should only get here if very few steps
     save_and_cleanup()
