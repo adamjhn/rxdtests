@@ -4,6 +4,13 @@ do_test.py -- runs a specific test; does not evaluate it
 Robert A McDougal
 June 23, 2014
 """
+
+def exec_test(the_file, global_var, local_var):
+    if sys.version_info.major < 3:
+        execfile(the_file, global_var, local_var)
+    else:
+        exec(compile(open(the_file).read(), the_file, 'exec'), global_var, local_var)
+
 def do_test(test_to_run, results_location, num_record=10):
     import os
     # switch to the directory
@@ -57,13 +64,9 @@ def do_test(test_to_run, results_location, num_record=10):
 
     h.CVode().extra_scatter_gather(0, collect_data)
     
-    
     # now run it
-    if sys.version_info.major < 3:
-        execfile(the_file, globals(), globals())
-    else:
-        exec(open(the_file).read())
-
+    exec_test(the_file,globals(),globals())
+    
     # should only get here if very few steps
     save_and_cleanup()
     
