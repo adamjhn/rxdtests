@@ -1,5 +1,4 @@
 language: cpp
-sudo: false
 dist: trusty
 addons:
     apt:
@@ -27,9 +26,9 @@ before_install:
   - $CXX -v
   - export PYTHONPATH=$PYTHONPATH:$(pwd)/install/lib/python/
 install:
-  - $PIP install numpy 
-  - $PIP install scipy
-  - $PIP install matplotlib
+  - sudo $PIP install numpy 
+  - sudo $PIP install scipy
+  - sudo $PIP install matplotlib
 script:
   - ./travis_build.sh build_out_of_tree
   - ./travis_build.sh .
