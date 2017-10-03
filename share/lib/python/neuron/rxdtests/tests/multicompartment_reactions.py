@@ -44,13 +44,13 @@ h_gate = ip3r_gate_state[cyt_er_membrane]
 minf = ip3[cyt] * 1000. * ca[cyt] / (ip3[cyt] + kip3) / (1000. * ca[cyt] + kact)
 k = gip3r * (minf * h_gate) ** 3
 
-ip3r = rxd.MultiCompartmentReaction(ca[er]<>ca[cyt], k, k, membrane=cyt_er_membrane)
+ip3r = rxd.MultiCompartmentReaction(ca[er],ca[cyt], k, k, membrane=cyt_er_membrane)
 
 serca = rxd.MultiCompartmentReaction(ca[cyt]>ca[er], gserca/((kserca / (1000. * ca[cyt])) ** 2 + 1), membrane=cyt_er_membrane, custom_dynamics=True)
-leak = rxd.MultiCompartmentReaction(ca[er]<>ca[cyt], gleak, gleak, membrane=cyt_er_membrane)
+leak = rxd.MultiCompartmentReaction(ca[er],ca[cyt], gleak, gleak, membrane=cyt_er_membrane)
 
 
-ip3r = rxd.MultiCompartmentReaction(ca[er]<>ca[cyt], k, k, membrane=cyt_er_membrane)
+ip3r = rxd.MultiCompartmentReaction(ca[er],ca[cyt], k, k, membrane=cyt_er_membrane)
 ip3rg = rxd.Rate(h_gate, (1. / (1 + 1000. * ca[cyt] / (0.3)) - h_gate) / ip3rtau)
 
 h.finitialize()
