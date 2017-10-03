@@ -35,5 +35,4 @@ install:
 script:
   - ./travis_build.sh build_out_of_tree
   - ./travis_build.sh .
-  - $PYTHON -V
   - $PYTHON share/lib/python/neuron/rxdtests/run_all.py
