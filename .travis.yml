@@ -6,6 +6,8 @@ addons:
         packages:
         - python3-pip
         - python-pip
+        - python3-scipy
+        - python-scipy
 virtualenv:
     system_site_packages: true 
 
@@ -22,16 +24,16 @@ env:
 os:
   - linux
 before_install:
-  - echo $LANG
+  - echo $LANG`
   - echo $LC_ALL
   - $CXX -v
   - export PYTHONPATH=$PYTHONPATH:$(pwd)/install/lib/python/
 install:
   - $PIP install --user numpy 
-  - $PIP install --user scipy
   - $PIP install --user matplotlib
   - export PYTHONPATH=$PYTHONPATH:$HOME/.local/lib/python*/
 script:
   - ./travis_build.sh build_out_of_tree
   - ./travis_build.sh .
+  - $PYTHON -V
   - $PYTHON share/lib/python/neuron/rxdtests/run_all.py
