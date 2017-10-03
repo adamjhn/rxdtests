@@ -8,6 +8,7 @@ addons:
         - python-pip
         - python3-scipy
         - python-scipy
+        - python-tk
 virtualenv:
     system_site_packages: true 
 
