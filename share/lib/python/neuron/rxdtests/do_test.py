@@ -64,7 +64,6 @@ def do_test(test_to_run, results_location, num_record=10):
     else:
         exec(compile(open(the_file).read(), the_file, 'exec'), globals(), locals())
 
-    
     # should only get here if very few steps
     save_and_cleanup()
     
