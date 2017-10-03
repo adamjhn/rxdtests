@@ -26,9 +26,12 @@ before_install:
   - $CXX -v
   - export PYTHONPATH=$PYTHONPATH:$(pwd)/install/lib/python/
 install:
-  - sudo $PIP install numpy 
-  - sudo $PIP install scipy
-  - sudo $PIP install matplotlib
+  - env
+  - sudo env
+  - sudo -E env
+  - sudo -E $PIP install numpy 
+  - sudo -E $PIP install scipy
+  - sudo -E $PIP install matplotlib
 script:
   - ./travis_build.sh build_out_of_tree
   - ./travis_build.sh .
