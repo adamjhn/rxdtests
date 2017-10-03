@@ -24,7 +24,7 @@ env:
 os:
   - linux
 before_install:
-  - echo $LANG`
+  - echo $LANG
   - echo $LC_ALL
   - $CXX -v
   - export PYTHONPATH=$PYTHONPATH:$(pwd)/install/lib/python/
